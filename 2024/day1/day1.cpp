@@ -67,7 +67,16 @@ int main() {
      
     int sum {std::accumulate(r.begin(), r.end(), 0)};
 
-    std::cout << sum << '\n';
+	std::vector<int> r2;
+	
+    for (auto i: left) {
+		r2.push_back(std::count(right.begin(), right.end(), i) * i);		
+	}
+
+	int sum2 {std::accumulate(r2.begin(), r2.end(), 0)};
+
+	std::cout << sum << '\n';
+    std::cout << sum2 << '\n';
 
     return 0;
 }
