@@ -7,6 +7,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <print>
 
 std::vector<std::string> split(const std::string& s, char delimiter) {
     std::vector<std::string> tokens;
@@ -64,19 +65,19 @@ int main() {
     std::vector<int> r;
     for (auto i {0}; i < left.size(); ++i)
 		r.push_back(std::abs(left[i] - right[i]));
-     
+
     int sum {std::accumulate(r.begin(), r.end(), 0)};
 
 	std::vector<int> r2;
-	
+
     for (auto i: left) {
-		r2.push_back(std::count(right.begin(), right.end(), i) * i);		
+		r2.push_back(std::count(right.begin(), right.end(), i) * i);
 	}
 
 	int sum2 {std::accumulate(r2.begin(), r2.end(), 0)};
 
-	std::cout << sum << '\n';
-    std::cout << sum2 << '\n';
+	std::println("{}", sum);
+    std::println("{}", sum2);
 
     return 0;
 }
