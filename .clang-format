@@ -8,6 +8,7 @@ AlignOperands: true
 AllowShortIfStatementsOnASingleLine: Never
 AllowShortFunctionsOnASingleLine: Empty
 AllowShortBlocksOnASingleLine: Empty
+AllowShortLoopsOnASingleLine: false
 AlwaysBreakTemplateDeclarations: Yes
 BraceWrapping:
   AfterCaseLabel: false
@@ -26,7 +27,7 @@ BraceWrapping:
   SplitEmptyFunction: true
   SplitEmptyRecord: true
   SplitEmptyNamespace: true
-BreakBeforeBraces: Custom
+BreakBeforeBraces: Stroustrup
 BreakConstructorInitializers: AfterColon
 BreakConstructorInitializersBeforeComma: false
 ColumnLimit: 120
