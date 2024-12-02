@@ -4,10 +4,10 @@
 #include <fstream>
 #include <iostream>
 #include <numeric>
+#include <print>
 #include <sstream>
 #include <string>
 #include <vector>
-#include <print>
 
 std::vector<std::string> split(const std::string& s, char delimiter) {
     std::vector<std::string> tokens;
@@ -42,12 +42,10 @@ int main() {
     std::vector<std::string> nv;
 
     for (auto i: v)
-        for (auto j: split(i, 't'))
-			nv.push_back(j);
+        for (auto j: split(i, 't')) nv.push_back(j);
 
     std::vector<int> integers;
-    for (std::string i: nv)
-		integers.push_back(std::stoi(i));
+    for (std::string i: nv) integers.push_back(std::stoi(i));
 
     std::vector<int> left;
     std::vector<int> right;
@@ -63,20 +61,19 @@ int main() {
     std::stable_sort(right.begin(), right.end());
 
     std::vector<int> r;
-    for (auto i {0}; i < left.size(); ++i)
-		r.push_back(std::abs(left[i] - right[i]));
+    for (auto i{0}; i < left.size(); ++i) r.push_back(std::abs(left[i] - right[i]));
 
-    int sum {std::accumulate(r.begin(), r.end(), 0)};
+    int sum{std::accumulate(r.begin(), r.end(), 0)};
 
-	std::vector<int> r2;
+    std::vector<int> r2;
 
     for (auto i: left) {
-		r2.push_back(std::count(right.begin(), right.end(), i) * i);
-	}
+        r2.push_back(std::count(right.begin(), right.end(), i) * i);
+    }
 
-	int sum2 {std::accumulate(r2.begin(), r2.end(), 0)};
+    int sum2{std::accumulate(r2.begin(), r2.end(), 0)};
 
-	std::println("{}", sum);
+    std::println("{}", sum);
     std::println("{}", sum2);
 
     return 0;
