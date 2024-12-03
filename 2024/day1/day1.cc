@@ -9,7 +9,8 @@
 #include <string>
 #include <vector>
 
-std::vector<std::string> split(const std::string& s, char delimiter) {
+std::vector<std::string> split(const std::string& s, char delimiter)
+{
     std::vector<std::string> tokens;
     std::istringstream token_stream(s);
     std::string token;
@@ -21,7 +22,8 @@ std::vector<std::string> split(const std::string& s, char delimiter) {
     return tokens;
 }
 
-int main() {
+int main()
+{
     std::vector<std::string> v;
     std::string s;
 
@@ -42,10 +44,12 @@ int main() {
     std::vector<std::string> nv;
 
     for (auto i: v)
-        for (auto j: split(i, 't')) nv.push_back(j);
+        for (auto j: split(i, 't'))
+            nv.push_back(j);
 
     std::vector<int> integers;
-    for (std::string i: nv) integers.push_back(std::stoi(i));
+    for (std::string i: nv)
+        integers.push_back(std::stoi(i));
 
     std::vector<int> left;
     std::vector<int> right;
@@ -61,7 +65,8 @@ int main() {
     std::stable_sort(right.begin(), right.end());
 
     std::vector<int> r;
-    for (auto i{0}; i < left.size(); ++i) r.push_back(std::abs(left[i] - right[i]));
+    for (auto i{0}; i < left.size(); ++i)
+        r.push_back(std::abs(left[i] - right[i]));
 
     int sum{std::accumulate(r.begin(), r.end(), 0)};
 
